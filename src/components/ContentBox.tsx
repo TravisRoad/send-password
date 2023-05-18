@@ -13,6 +13,7 @@ export default function ContentBox({ token, hash }: InputProp) {
 
   async function decryptButtonClick() {
     try {
+      toast.loading("loading...", { duration: 700 });
       const res = await fetch(`/api/send?token=${token}`);
       if (!res.ok) {
         throw new Error("message not exist or has been burnt");
