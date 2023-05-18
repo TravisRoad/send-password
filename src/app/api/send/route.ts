@@ -3,10 +3,7 @@ import type { dataKV } from "@/utils/type";
 import { NextRequest, NextResponse } from "next/server";
 
 // let kvStore: { [key: string]: string } = {};
-let kvStore: { [key: string]: string } = {
-  "1684243178654":
-    "51fbf74d5e1c76f615538a5f19b8fa78e32909a208f07f0e010689ee0aa22f4d",
-};
+let kvStore: { [key: string]: string } = {};
 
 export async function POST() {
   const token: string = Date.now().toString();
@@ -24,12 +21,25 @@ export async function POST() {
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const token = searchParams.get("token");
-  console.log("token:", token);
 
   if (token !== null && token?.length !== 0 && kvStore[token]) {
-    return NextResponse.json({ key: kvStore[token] });
+    const key = kvStore[token];
+    delete kvStore[token];
+    return NextResponse.json({ key: key });
   }
-  return new NextResponse(null, {
-    status: 400,
-  });
+  return new NextResponse(null, { status: 400 });
+}
+
+export async function DELETE(req: NextRequest) {
+  const { searchParams } = new URL(req.url);
+  const token = searchParams.get("token");
+
+  console.log(token);
+  console.log(kvStore);
+
+  if (token !== null && token?.length !== 0 && kvStore[token]) {
+    delete kvStore[token];
+    return new NextResponse(null, { status: 200 });
+  }
+  return new NextResponse(null, { status: 400 });
 }
