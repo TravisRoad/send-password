@@ -47,7 +47,7 @@ export default function InfoSendArea() {
     <>
       <Toaster />
       {!hasSend && (
-        <fieldset className="flex flex-col w-full sm:max-w-lg max-w-xs rounded-lg border pt-4 px-4 pb-2">
+        <fieldset className="flex flex-col w-full sm:max-w-lg max-w-sm rounded-lg border pt-4 px-4 pb-2">
           <h1 className="font-sans text-xl font-bold"> 消息 </h1>
           <textarea
             autoFocus={true}
@@ -68,7 +68,7 @@ export default function InfoSendArea() {
         </fieldset>
       )}
       {hasSend && (
-        <div className="flex flex-col border-2 rounded-lg p-2 border-nord-9/50 w-full sm:max-w-lg max-w-xs">
+        <div className="flex flex-col border-2 rounded-lg p-2 border-nord-9/50 w-full sm:max-w-lg max-w-sm">
           <h1 className="pl-2 font-bold font-sans text-xl">分享这个链接</h1>
           <div className="relative group border-2 border-nord-9 bg-nord-5 rounded-lg p-2 ring-0">
             <input

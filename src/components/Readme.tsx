@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Readme() {
   return (
-    <div className="w-full sm:max-w-lg max-w-xs bg-slate-100 rounded-lg mt-2 ">
+    <div className="w-full sm:max-w-lg max-w-sm bg-slate-100 rounded-lg mt-2 ">
       <details>
         <summary className="text-md font-bold p-2">README</summary>
         <ol className="list-decimal list-outside pl-6 pb-2 pr-2">
