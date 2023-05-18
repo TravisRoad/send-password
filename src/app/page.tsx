@@ -2,6 +2,7 @@
 
 import ContentBox from "@/components/ContentBox";
 import InfoSendArea from "@/components/InfoSendArea";
+import Readme from "@/components/Readme";
 import { decrypt } from "@/utils/crypto";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -23,7 +24,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex flex-col items-center justify-between mt-20 w-full">
+    <main className="flex flex-col items-center mt-20 w-full">
       <h1 className="text-3xl font-bold mb-2">阅后即焚🔥</h1>
       {loading ? (
         <p>Loading...</p>
@@ -32,6 +33,7 @@ export default function Home() {
       ) : (
         <InfoSendArea />
       )}
+      <Readme />
     </main>
   );
 }

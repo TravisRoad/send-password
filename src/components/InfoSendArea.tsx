@@ -61,7 +61,7 @@ export default function InfoSendArea() {
         </fieldset>
       )}
       {hasSend && (
-        <div className="flex flex-col border-2 rounded-lg p-2 border-nord-9/50 w-full sm:max-w-2xl max-w-xs">
+        <div className="flex flex-col border-2 rounded-lg p-2 border-nord-9/50 w-full sm:max-w-lg max-w-xs">
           <h1 className="pl-2 font-bold font-sans text-xl">分享这个链接</h1>
           <div className="relative group border-2 border-nord-9 bg-nord-5 rounded-lg p-2 ring-0">
             <input
