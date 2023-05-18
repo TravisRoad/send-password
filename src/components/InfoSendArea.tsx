@@ -9,6 +9,7 @@ export default function InfoSendArea() {
   const [content, setContent] = useState<string>("");
   const [hasSend, setHasSend] = useState<boolean>(false);
   const [url, setUrl] = useState<string>("");
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
   const changeHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setContent(e.target.value);
@@ -22,6 +23,7 @@ export default function InfoSendArea() {
 
   const sendHandler = async (e: React.MouseEvent<HTMLButtonElement>) => {
     const loadingId = toast.loading("sending...");
+    setIsButtonDisabled(true);
     try {
       if (content.length === 0) throw new Error("content is empty");
 
@@ -38,6 +40,7 @@ export default function InfoSendArea() {
       toast.error(error.message);
     }
     toast.remove(loadingId);
+    setIsButtonDisabled(false);
   };
 
   return (
@@ -57,8 +60,9 @@ export default function InfoSendArea() {
             <button
               onClick={sendHandler}
               className="rounded-lg border-2 bg-nord-10/50 hover:bg-nord-10/20 transition-colors border-nord-10 py-1 px-2 "
+              disabled={isButtonDisabled}
             >
-              分享
+              {isButtonDisabled ? "加载中..." : "分享"}
             </button>
           </div>
         </fieldset>
