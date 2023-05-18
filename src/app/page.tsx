@@ -24,7 +24,7 @@ export default function Home() {
 
   return (
     <main className="flex flex-col items-center justify-between mt-20 w-full">
-      <h1> Send Text </h1>
+      <h1 className="text-3xl font-bold mb-2">阅后即焚🔥</h1>
       {loading ? (
         <p>Loading...</p>
       ) : token !== null && hashRef.current !== null ? (
