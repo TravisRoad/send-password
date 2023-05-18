@@ -4,6 +4,7 @@ import ContentBox from "@/components/ContentBox";
 import InfoSendArea from "@/components/InfoSendArea";
 import Readme from "@/components/Readme";
 import { decrypt } from "@/utils/crypto";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
@@ -25,7 +26,9 @@ export default function Home() {
 
   return (
     <main className="flex flex-col items-center mt-20 w-full">
-      <h1 className="text-3xl font-bold mb-2">阅后即焚🔥</h1>
+      <Link href="/">
+        <h1 className="text-3xl font-bold mb-2">阅后即焚🔥</h1>
+      </Link>
       {loading ? (
         <p>Loading...</p>
       ) : token !== null && hashRef.current !== null ? (
