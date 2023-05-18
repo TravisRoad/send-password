@@ -21,9 +21,9 @@ export default function InfoSendArea() {
   };
 
   const sendHandler = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    const loadingId = toast.loading("sending...");
     try {
       if (content.length === 0) throw new Error("content is empty");
-      toast.loading("sending...", { duration: 700 });
 
       const res = await fetch("/api/send", { method: "POST" });
       setHasSend(true);
@@ -37,6 +37,7 @@ export default function InfoSendArea() {
     } catch (error: any) {
       toast.error(error.message);
     }
+    toast.remove(loadingId);
   };
 
   return (

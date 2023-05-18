@@ -12,8 +12,8 @@ export default function ContentBox({ token, hash }: InputProp) {
   const [showAnswer, setShowAnswer] = useState<boolean>(false);
 
   async function decryptButtonClick() {
+    const loadingId: string = toast.loading("loading...");
     try {
-      toast.loading("loading...", { duration: 700 });
       const res = await fetch(`/api/send?token=${token}`);
       if (!res.ok) {
         throw new Error("message not exist or has been burnt");
@@ -37,6 +37,7 @@ export default function ContentBox({ token, hash }: InputProp) {
       console.log(error);
       toast.error(error.message);
     }
+    toast.remove(loadingId);
   }
 
   async function copyButtonClick() {
